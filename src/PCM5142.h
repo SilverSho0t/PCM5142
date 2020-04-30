@@ -32,16 +32,31 @@ class PCM5142
 		PCM5142(TwoWire& wire = Wire, uint8_t slaveAddress = 0x4C);
 		~PCM5142();
 		
-		void reset(void);
+		// Any page
+		void selectPage(uint8_t page);							// Register 0 : Page Select
+		
+		// Page 0
+		void reset(void);									// Register 1 : Reset Modules & Registers
+		void reset(bool registers, bool modules = false);	// Register 1 : Reset Registers / Modules
 		void power(void);
-		void mute(void);
+		void mute(bool channels);							// Register 3 : Mute Left & Right Channel
+		void mute(bool left, bool right);					// Register 3 : Mute Left / Right Channel
 		void PLL(void);
 		
-		void setVolume(uint8_t v);
-		void setVolumeRight(uint8_t v);
-		void setVolumeLeft(uint8_t v);
+		void selectDSPProgram(uint8_t p);					// Register 43 : DSP Program Selection
 		
-		void setDSPUserProgram(void);
+		void setVolumeControl(uint8_t t);					// Register 60 : Digital Volume Control
+		void setVolume(uint8_t v);							// Set the volume in function of register 60
+		void setVolume(uint8_t left, uint8_t right);		// Set the volume of both registers
+		void setVolumeLeft(uint8_t v);						// Register 61 : Left Digital Volume
+		void setVolumeRight(uint8_t v);						// Register 62 : Right Digital Volume
+		
+		// Page 1
+		
+		
+		
+		// DSP
+		void setDSPUserProgram(void);		// Upload the user program into the RAM
 		
 		// I²C functions
 		int readRegister(uint8_t address);
@@ -53,4 +68,5 @@ class PCM5142
 		TwoWire* _wire;
 		uint8_t _slaveAddress;
 		uint8_t _page;
+		uint8_t _volControl;
 };
