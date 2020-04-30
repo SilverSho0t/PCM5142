@@ -60,7 +60,7 @@ void PCM5142::mute(bool left, bool right)
 	writeRegister(3, left << 4 + right);
 }
 
-/*	Register 43 : DSP Program Selection
+/*	Register 43 : DSP Program Selection
  *	These bits select the DSP program to use for audio processing.
  *	Default value: 00001
  *	00000: Reserved (do not set)
@@ -80,7 +80,7 @@ void PCM5142::selectDSPProgram(uint8_t p)
 
 }
 
-/*	Register 60 : Digital Volume Control
+/*	Register 60 : Digital Volume Control
  *	These bits control the behavior of the digital volume.
  *	Default value: xxxx xx00
  *	00: The volume for Left and right channels are independent

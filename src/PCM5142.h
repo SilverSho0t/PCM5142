@@ -33,23 +33,23 @@ class PCM5142
 		~PCM5142();
 
 		// Any page
-		void selectPage(uint8_t page);										// Register 0 : Page Select
+		void selectPage(uint8_t page);						// Register 0 : Page Select
 
 		// Page 0
-		void reset(void);																	// Register 1 : Reset Modules & Registers
+		void reset(void);									// Register 1 : Reset Modules & Registers
 		void reset(bool registers, bool modules = false);	// Register 1 : Reset Registers / Modules
 		void power(void);
-		void mute(bool channels);											// Register 3 : Mute Left & Right Channel
-		void mute(bool left, bool right);							// Register 3 : Mute Left / Right Channel
+		void mute(bool channels);							// Register 3 : Mute Left & Right Channel
+		void mute(bool left, bool right);					// Register 3 : Mute Left / Right Channel
 		void PLL(void);
 
-		void selectDSPProgram(uint8_t p);							// Register 43 : DSP Program Selection
+		void selectDSPProgram(uint8_t p);					// Register 43 : DSP Program Selection
 
-		void setVolumeControl(uint8_t t);							// Register 60 : Digital Volume Control
-		void setVolume(uint8_t v);										// Set the volume in function of register 60
-		void setVolume(uint8_t left, uint8_t right);	// Set the volume of both registers
-		void setVolumeLeft(uint8_t v);								// Register 61 : Left Digital Volume
-		void setVolumeRight(uint8_t v);								// Register 62 : Right Digital Volume
+		void setVolumeControl(uint8_t t);					// Register 60 : Digital Volume Control
+		void setVolume(uint8_t v);							// Set the volume in function of register 60
+		void setVolume(uint8_t left, uint8_t right);		// Set the volume of both registers
+		void setVolumeLeft(uint8_t v);						// Register 61 : Left Digital Volume
+		void setVolumeRight(uint8_t v);						// Register 62 : Right Digital Volume
 
 		// Page 1
 
