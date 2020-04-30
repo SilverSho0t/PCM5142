@@ -27,7 +27,7 @@ void PCM5142::selectPage(uint8_t page)
 {
 	if (page == _page)	// Check if the page is already selected
 		return;
-		
+
 	writeRegister(0, page);
 	_page = page;
 }
@@ -41,10 +41,10 @@ void PCM5142::reset(bool registers, bool modules /*= false*/)
 {
 	if (modules)
 		// POWER_MODE_STANDBY
-		
+
 	selectPage(0);
 	writeRegister(1, modules << 4 + registers);
-	
+
 	if (modules)
 		// POWER_MODE_ACTIVE
 }
@@ -60,7 +60,8 @@ void PCM5142::mute(bool left, bool right)
 	writeRegister(3, left << 4 + right);
 }
 
-/*	Register 43 : DSP Program Selection *	These bits select the DSP program to use for audio processing.
+/*	Register 43 : DSP Program Selection
+ *	These bits select the DSP program to use for audio processing.
  *	Default value: 00001
  *	00000: Reserved (do not set)
  *	00001: 8x/4x/2x FIR interpolation filter with de-emphasis
@@ -76,10 +77,11 @@ void PCM5142::mute(bool left, bool right)
 
 void PCM5142::selectDSPProgram(uint8_t p)
 {
-	
+
 }
 
-/*	Register 60 : Digital Volume Control *	These bits control the behavior of the digital volume.
+/*	Register 60 : Digital Volume Control
+ *	These bits control the behavior of the digital volume.
  *	Default value: xxxx xx00
  *	00: The volume for Left and right channels are independent
  *	01: Right channel volume follows left channel setting
@@ -136,10 +138,10 @@ void PCM5142::setVolumeRight(uint8_t v)
 int PCM5142::readRegister(uint8_t address)
 {
 	uint8_t value;
-	
+
 	if (readRegisters(address, &value, sizeof(value)) != 1)
 		return -1;
-	
+
 	return value;
 }
 
@@ -156,7 +158,7 @@ int PCM5142::readRegisters(uint8_t address, uint8_t* data, size_t length)
 
 	for (size_t i = 0; i < length; i++)
 		*data++ = _wire->read();
-	
+
 	return 1;
 }
 
@@ -165,9 +167,9 @@ int PCM5142::writeRegister(uint8_t address, uint8_t value)
 	_wire->beginTransmission(_slaveAddress);
 	_wire->write(address);
 	_wire->write(value);
-	
+
 	if (_wire->endTransmission() != 0)
 		return 0;
-	
+
 	return 1;
 }
