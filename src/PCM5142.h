@@ -26,24 +26,37 @@
 typedef uint8_t u8;
 typedef String string;
 
+typedef struct {
+    u8 reg_off;
+    u8 reg_val;
+} reg_value;
+
 class PCM5142
 {
 	public:
 		PCM5142(TwoWire& wire = Wire, uint8_t slaveAddress = 0x4C);
-		~PCM5142();
+		virtual ~PCM5142();
+
+		void begin(void);
 
 		// Any page
 		void selectPage(uint8_t page);						// Register 0 : Page Select
 
 		// Page 0
-		void reset(void);									// Register 1 : Reset Modules & Registers
-		void reset(bool registers, bool modules = false);	// Register 1 : Reset Registers / Modules
-		void power(void);
-		void mute(bool channels);							// Register 3 : Mute Left & Right Channel
-		void mute(bool left, bool right);					// Register 3 : Mute Left / Right Channel
-		void PLL(void);
+		void reset(void);											// Register 1 : Reset Modules & Registers
+		void reset(bool registers, bool modules = false);			// Register 1 : Reset Registers / Modules
+		void setPowerMode(bool standby, bool powerdown = false);	// Register 2 : Set Standby & Powerdown Mode
+		uint8_t getPowerMode(void);									// Register 2 : Get Standby & Powerdown Mode
+		void mute(bool channels);									// Register 3 : Mute Left & Right Channel
+		void mute(bool left, bool right);							// Register 3 : Mute Left / Right Channel
 
-		void selectDSPProgram(uint8_t p);					// Register 43 : DSP Program Selection
+		void PLL(void);												// To be developed later (to use 3-Wire PCM)
+
+		void deEmphasisEnable(bool enable);							// Register 7 : De-Emphasis
+		void SDOUTMode(bool mode);									// Register 7 : SDOUT Select
+		void interpolation(bool 16x);								// Register 34 : Enables or disables the 16x interpolation mode
+		void I2SConfig(uint8_t dataFormat, uint8_t wordLength);		// Register 40 : Configure I2S Data Format & Word Length
+		void selectDSPProgram(uint8_t program);						// Register 43 : DSP Program Selection
 
 		void setVolumeControl(uint8_t t);					// Register 60 : Digital Volume Control
 		void setVolume(uint8_t v);							// Set the volume in function of register 60
@@ -54,14 +67,13 @@ class PCM5142
 		// Page 1
 
 
-
 		// DSP
-		void setDSPUserProgram(void);		// Upload the user program into the RAM
+		void setDSPUserProgram(reg_value program, reg_value miniDSP_D);		// Upload the user program into the RAM
 
 		// I²C functions
-		int readRegister(uint8_t address);
-		int readRegisters(uint8_t address, uint8_t* data, size_t length);
-		int writeRegister(uint8_t address, uint8_t value);
+		uint8_t readRegister(uint8_t address);
+		uint8_t readRegisters(uint8_t address, uint8_t* data, size_t length);
+		uint8_t writeRegister(uint8_t address, uint8_t value);
 		//int writeRegisters(uint8_t address, uint8_t* data, size_t length);
 
 	private:
@@ -70,3 +82,5 @@ class PCM5142
 		uint8_t _page;
 		uint8_t _volControl;
 };
+
+#endif

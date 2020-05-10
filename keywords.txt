@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map For PCM5142
+####################################### 
+# Class
+#######################################
+
+PCM5142	KEYWORD1
+
+#######################################
+# Methods and Functions 
+#######################################	
+
+selectPage			KEYWORD2
+reset				KEYWORD2
+power				KEYWORD2
+mute				KEYWORD2
+PLL					KEYWORD2
+selectDSPProgram	KEYWORD2
+setVolumeControl	KEYWORD2
+setVolume			KEYWORD2
+setVolumeLeft		KEYWORD2
+setVolumeRight		KEYWORD2
+setDSPUserProgram	KEYWORD2
+readRegister		KEYWORD2
+readRegisters		KEYWORD2
+writeRegister		KEYWORD2
+
+#######################################
+# Constants
+#######################################
