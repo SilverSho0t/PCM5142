@@ -10,33 +10,36 @@ PCM5142	KEYWORD1
 # Methods and Functions 
 #######################################	
 
-begin	KEYWORD2
+Begin	KEYWORD2
 
-selectPage	KEYWORD2
+SelectPage	KEYWORD2
 
-reset	KEYWORD2
-setPowerMode	KEYWORD2
-getPowerMode	KEYWORD2
-mute	KEYWORD2
+Reset	KEYWORD2
+PowerMode	KEYWORD2
+Mute	KEYWORD2
 
 PLL	KEYWORD2
 
-deEmphasisEnable	KEYWORD2
+DeEmphasisEnable	KEYWORD2
 SDOUTMode	KEYWORD2
-interpolation	KEYWORD2
+Interpolation16x	KEYWORD2
 I2SConfig	KEYWORD2
-selectDSPProgram	KEYWORD2
+SelectDSPProgram	KEYWORD2
 
-setVolumeControl	KEYWORD2
-setVolume	KEYWORD2
-setVolumeLeft	KEYWORD2
-setVolumeRight	KEYWORD2
+SetVolumeControl	KEYWORD2
+SetVolume	KEYWORD2
+SetVolumeLeft	KEYWORD2
+SetVolumeRight	KEYWORD2
 
-setDSPUserProgram	KEYWORD2
+DSPBootDoneFlag	KEYWORD2
+PowerState	KEYWORD2
+DACMode	KEYWORD2
 
-readRegister	KEYWORD2
-readRegisters	KEYWORD2
-writeRegister	KEYWORD2
+SetDSPUserProgram	KEYWORD2
+
+ReadRegister	KEYWORD2
+ReadRegisters	KEYWORD2
+WriteRegister	KEYWORD2
 
 #######################################
 # Constants
