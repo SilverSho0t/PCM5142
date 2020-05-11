@@ -38,43 +38,47 @@ class PCM5142
 		PCM5142(uint8_t slaveAddress = 0x4C, TwoWire& wire = Wire);
 		~PCM5142();
 
-		void begin(void);
+		void Begin(void);
 
 		// Any page
-		void selectPage(uint8_t page);						// Register 0 : Page Select
+		void SelectPage(uint8_t page);							// Register 0 : Page Select
 
 		// Page 0
-		void reset(void);											// Register 1 : Reset Modules & Registers
-		void reset(bool registers, bool modules = false);			// Register 1 : Reset Registers / Modules
-		void setPowerMode(bool standby, bool powerdown = false);	// Register 2 : Set Standby & Powerdown Mode
-		uint8_t getPowerMode(void);									// Register 2 : Get Standby & Powerdown Mode
-		void mute(bool channels);									// Register 3 : Mute Left & Right Channel
-		void mute(bool left, bool right);							// Register 3 : Mute Left / Right Channel
+		void Reset(void);										// Register 1 : Reset Modules & Registers
+		void Reset(bool registers, bool modules = false);		// Register 1 : Reset Registers / Modules
+		void PowerMode(bool standby, bool powerdown = false);	// Register 2 : Standby & Powerdown Mode
+		void Mute(bool channels);								// Register 3 : Mute Left & Right Channel
+		void Mute(bool left, bool right);						// Register 3 : Mute Left / Right Channel
 
-		void PLL(void);												// To be developed later (to use 3-Wire PCM)
+		void PLL(void);											// To be developed later (to use 3-Wire PCM)
 
-		void deEmphasisEnable(bool enable);							// Register 7 : De-Emphasis
-		void SDOUTMode(bool mode);									// Register 7 : SDOUT Select
-		void interpolation16x(bool enable);							// Register 34 : Enables or disables the 16x interpolation mode
-		void I2SConfig(uint8_t dataFormat, uint8_t wordLength);		// Register 40 : Configure I2S Data Format & Word Length
-		void selectDSPProgram(uint8_t program);						// Register 43 : DSP Program Selection
+		void DeEmphasisEnable(bool enable);						// Register 7 : De-Emphasis
+		void SDOUTMode(bool mode);								// Register 7 : SDOUT Select
+		void Interpolation16x(bool enable);						// Register 34 : Enables or disables the 16x interpolation mode
+		void I2SConfig(uint8_t dataFormat, uint8_t wordLength);	// Register 40 : Configure I2S Data Format & Word Length
+		void SelectDSPProgram(uint8_t program);					// Register 43 : DSP Program Selection
 
-		void setVolumeControl(uint8_t t);					// Register 60 : Digital Volume Control
-		void setVolume(uint8_t v);							// Set the volume in function of register 60
-		void setVolume(uint8_t left, uint8_t right);		// Set the volume of both registers
-		void setVolumeLeft(uint8_t v);						// Register 61 : Left Digital Volume
-		void setVolumeRight(uint8_t v);						// Register 62 : Right Digital Volume
+		void SetVolumeControl(uint8_t t);					// Register 60 : Digital Volume Control
+		void SetVolume(uint8_t v);							// Set the volume in function of register 60
+		void SetVolume(uint8_t left, uint8_t right);		// Set the volume of both registers
+		void SetVolumeLeft(uint8_t v);						// Register 61 : Left Digital Volume
+		void SetVolumeRight(uint8_t v);						// Register 62 : Right Digital Volume
+
+		bool DSPBootDoneFlag(void);							// Register 118 : DSP Boot Done Flag (Read Only)
+		uint8_t PowerState(void);							// Register 118 : Power State (Read Only)
+
+		void DACMode(bool mode);							// Register 121 : DAC Mode
 
 		// Page 1
 
 
 		// DSP
-		void setDSPUserProgram(reg_value program[], uint16_t programSize, reg_value miniDSP_D[], uint16_t miniDSP_DSize);	// Upload the user program into the RAM
+		void SetDSPUserProgram(reg_value program[], uint16_t programSize, reg_value miniDSP_D[], uint16_t miniDSP_DSize);	// Upload the user program into the RAM
 
 		// I²C functions
-		uint8_t readRegister(uint8_t address);
-		uint8_t readRegisters(uint8_t address, uint8_t* data, size_t length);
-		uint8_t writeRegister(uint8_t address, uint8_t value);
+		uint8_t ReadRegister(uint8_t address);
+		uint8_t ReadRegisters(uint8_t address, uint8_t* data, size_t length);
+		uint8_t WriteRegister(uint8_t address, uint8_t value);
 		//int writeRegisters(uint8_t address, uint8_t* data, size_t length);
 
 	private:

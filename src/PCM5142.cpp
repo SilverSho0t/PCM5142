@@ -28,63 +28,57 @@ PCM5142::~PCM5142()
 {
 }
 
-void PCM5142::begin(void)
+void PCM5142::Begin(void)
 {
 	// Start I2C
 	_wire->begin();
 
 	// Synchronise page variable between the library and the component
 	_page = 1;
-	selectPage(0);
+	SelectPage(0);
 }
 
-void PCM5142::selectPage(uint8_t page)
+void PCM5142::SelectPage(uint8_t page)
 {
 	if (page == _page)	// Check if the page is already selected
 		return;
 
-	writeRegister(0, page);
+	WriteRegister(0, page);
 	_page = page;
 }
 
-void PCM5142::reset(void)
+void PCM5142::Reset(void)
 {
-	reset(true, true);
+	Reset(true, true);
 }
 
-void PCM5142::reset(bool registers, bool modules /*= false*/)
+void PCM5142::Reset(bool registers, bool modules /*= false*/)
 {
 	if (modules)
-		setPowerMode(true);
+		PowerMode(true);
 
-	selectPage(0);
-	writeRegister(1, (modules << 4) + registers);
+	SelectPage(0);
+	WriteRegister(1, (modules << 4) + registers);
 
 	if (modules)
-		setPowerMode(false);
+		PowerMode(false);
 }
 
-void PCM5142::setPowerMode(bool standby, bool powerdown /*= false*/)
+void PCM5142::PowerMode(bool standby, bool powerdown /*= false*/)
 {
-	selectPage(0);
-	writeRegister(2, (standby << 4) + powerdown);
+	SelectPage(0);
+	WriteRegister(2, (standby << 4) + powerdown);
 }
 
-uint8_t PCM5142::getPowerMode(void)
+void PCM5142::Mute(bool channels)
 {
-	selectPage(0);
-	return readRegister(2);
+	Mute(channels, channels);
 }
 
-void PCM5142::mute(bool channels)
+void PCM5142::Mute(bool left, bool right)
 {
-	mute(channels, channels);
-}
-
-void PCM5142::mute(bool left, bool right)
-{
-	selectPage(0);
-	writeRegister(3, (left << 4) + right);
+	SelectPage(0);
+	WriteRegister(3, (left << 4) + right);
 }
 
 void PCM5142::PLL(void)
@@ -108,16 +102,16 @@ void PCM5142::PLL(void)
  *	1: SDOUT is the DSP input (pre-processing)
  */
 
-void PCM5142::deEmphasisEnable(bool enable)
+void PCM5142::DeEmphasisEnable(bool enable) // TO FIX WITH A READ REGISTER BEFORE
 {
-	selectPage(0);
-	writeRegister(7, enable << 4);
+	SelectPage(0);
+	WriteRegister(7, enable << 4);
 }
 
-void PCM5142::SDOUTMode(bool mode)
+void PCM5142::SDOUTMode(bool mode) // TO FIX WITH A READ REGISTER BEFORE
 {
-	selectPage(0);
-	writeRegister(7, mode);
+	SelectPage(0);
+	WriteRegister(7, mode);
 }
 
 /*	Register 34 : 16x Interpolation & FS Speed Mode
@@ -138,10 +132,10 @@ void PCM5142::SDOUTMode(bool mode)
  *	11: Octal speed (192 kHz < FS ≤ 384 kHz)
  */
 
-void PCM5142::interpolation16x(bool enable)
+void PCM5142::Interpolation16x(bool enable) // TO FIX WITH A READ REGISTER BEFORE
 {
-	selectPage(0);
-	writeRegister(34, enable << 4);
+	SelectPage(0);
+	WriteRegister(34, enable << 4);
 }
 
 /*	Register 40 : I2S Data Format & Word Length
@@ -165,8 +159,8 @@ void PCM5142::interpolation16x(bool enable)
 
 void PCM5142::I2SConfig(uint8_t dataFormat, uint8_t wordLength)
 {
-	selectPage(0);
-	writeRegister(40, (dataFormat << 4) + wordLength);
+	SelectPage(0);
+	WriteRegister(40, (dataFormat << 4) + wordLength);
 }
 
 /*	Register 43 : DSP Program Selection
@@ -184,10 +178,12 @@ void PCM5142::I2SConfig(uint8_t dataFormat, uint8_t wordLength)
  *	others: Reserved (do not set)
  */
 
-void PCM5142::selectDSPProgram(uint8_t program)
+void PCM5142::SelectDSPProgram(uint8_t program)
 {
-	selectPage(0);
-	writeRegister(43, program);
+	PowerMode(true);
+	SelectPage(0);
+	WriteRegister(43, program);
+	PowerMode(false);
 }
 
 /*	Register 60 : Digital Volume Control
@@ -199,54 +195,101 @@ void PCM5142::selectDSPProgram(uint8_t program)
  *	11: Reserved (The volume for Left and right channels are independent)
  */
 
-void PCM5142::setVolumeControl(uint8_t t)
+void PCM5142::SetVolumeControl(uint8_t t)
 {
-	selectPage(0);
-	writeRegister(60, t);
+	SelectPage(0);
+	WriteRegister(60, t);
 	_volControl = t;
 }
 
-void PCM5142::setVolume(uint8_t v)
+void PCM5142::SetVolume(uint8_t v)
 {
 	switch (_volControl)
 	{
 		case 0:
-			setVolumeRight(v);
-			setVolumeLeft(v);
+			SetVolumeRight(v);
+			SetVolumeLeft(v);
 			break;
 		case 1:
-			setVolumeLeft(v);
+			SetVolumeLeft(v);
 			break;
 		case 2:
-			setVolumeRight(v);
+			SetVolumeRight(v);
 			break;
 		default:
-			setVolumeRight(v);
-			setVolumeLeft(v);
+			SetVolumeRight(v);
+			SetVolumeLeft(v);
 			break;
 	}
 }
 
-void PCM5142::setVolume(uint8_t left, uint8_t right)
+void PCM5142::SetVolume(uint8_t left, uint8_t right)
 {
-	setVolumeRight(left);
-	setVolumeLeft(right);
+	SetVolumeRight(left);
+	SetVolumeLeft(right);
 }
 
-void PCM5142::setVolumeLeft(uint8_t v)
+void PCM5142::SetVolumeLeft(uint8_t v)
 {
-	selectPage(0);
-	writeRegister(61, v);
+	SelectPage(0);
+	WriteRegister(61, v);
 }
 
-void PCM5142::setVolumeRight(uint8_t v)
+void PCM5142::SetVolumeRight(uint8_t v)
 {
-	selectPage(0);
-	writeRegister(62, v);
+	SelectPage(0);
+	WriteRegister(62, v);
+}
+
+/*	Register 118 : DSP Boot Done Flag & Power State (Read Only)
+ *
+ *	DSP Boot Done Flag (Read Only)
+ *	This bit indicates whether the DSP boot is completed.
+ *	0: DSP is booting
+ *	1: DSP boot completed
+ *	
+ *	Power State (Read Only)
+ *	These bits indicate the current power state of the DAC.
+ *	0000: Powerdown
+ *	0001: Wait for CP voltage valid
+ *	0010: Calibration
+ *	0011: Calibration
+ *	0100: Volume ramp up
+ *	0101: Run (Playing)
+ *	0110: Line output short / Low impedance
+ *	0111: Volume ramp down
+ *	1000: Standby
+ */
+
+bool PCM5142::DSPBootDoneFlag(void)
+{
+	SelectPage(0);
+	return ReadRegister(118) >> 7;
+}
+
+uint8_t PCM5142::PowerState(void)
+{
+	SelectPage(0);
+	return ReadRegister(118) & 0x0F;
+}
+
+/*	Register 121 : DAC Mode 
+ *
+ *	DAC Mode
+ *	This bit controls the DAC architecture to vary the DAC auditory signature.
+ *	Default value: 0
+ *	0: Mode1 - New hyper-advanced current-segment architecture
+ *	1: Mode2 - Classic PCM1792 advanced current-segment architecture
+ */
+
+void PCM5142::DACMode(bool mode)
+{
+	SelectPage(0);
+	WriteRegister(121, mode);
 }
 
 // This function is useful only for PCM5141 & PCM5142 DACs
-void PCM5142::setDSPUserProgram(reg_value program[], uint16_t programSize, reg_value miniDSP_D[], uint16_t miniDSP_DSize)
+void PCM5142::SetDSPUserProgram(reg_value program[], uint16_t programSize, reg_value miniDSP_D[], uint16_t miniDSP_DSize)
 {
 	for (int i = 0; i < programSize; i++)
 	{
@@ -254,25 +297,25 @@ void PCM5142::setDSPUserProgram(reg_value program[], uint16_t programSize, reg_v
 		{
 			for (int j = 0; j < miniDSP_DSize; j++)
 			{
-				writeRegister(miniDSP_D[j].reg_off, miniDSP_D[j].reg_val);
+				WriteRegister(miniDSP_D[j].reg_off, miniDSP_D[j].reg_val);
 			}
 		}
 		else
-			writeRegister(program[i].reg_off, program[i].reg_val);
+			WriteRegister(program[i].reg_off, program[i].reg_val);
 	}
 }
 
-uint8_t PCM5142::readRegister(uint8_t address)
+uint8_t PCM5142::ReadRegister(uint8_t address)
 {
 	uint8_t value;
 
-	if (readRegisters(address, &value, sizeof(value)) != 1)
+	if (ReadRegisters(address, &value, sizeof(value)) != 1)
 		return -1;
 
 	return value;
 }
 
-uint8_t PCM5142::readRegisters(uint8_t address, uint8_t* data, size_t length)
+uint8_t PCM5142::ReadRegisters(uint8_t address, uint8_t* data, size_t length)
 {
 	_wire->beginTransmission(_slaveAddress);
 	_wire->write(address);
@@ -289,7 +332,7 @@ uint8_t PCM5142::readRegisters(uint8_t address, uint8_t* data, size_t length)
 	return 1;
 }
 
-uint8_t PCM5142::writeRegister(uint8_t address, uint8_t value)
+uint8_t PCM5142::WriteRegister(uint8_t address, uint8_t value)
 {
 	_wire->beginTransmission(_slaveAddress);
 	_wire->write(address);
