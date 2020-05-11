@@ -26,6 +26,7 @@
 typedef uint8_t u8;
 typedef String string;
 
+//INSTRUCTIONS & COEFFICIENTS
 typedef struct {
     u8 reg_off;
     u8 reg_val;
@@ -34,8 +35,8 @@ typedef struct {
 class PCM5142
 {
 	public:
-		PCM5142(TwoWire& wire = Wire, uint8_t slaveAddress = 0x4C);
-		virtual ~PCM5142();
+		PCM5142(uint8_t slaveAddress = 0x4C, TwoWire& wire = Wire);
+		~PCM5142();
 
 		void begin(void);
 
@@ -54,7 +55,7 @@ class PCM5142
 
 		void deEmphasisEnable(bool enable);							// Register 7 : De-Emphasis
 		void SDOUTMode(bool mode);									// Register 7 : SDOUT Select
-		void interpolation(bool 16x);								// Register 34 : Enables or disables the 16x interpolation mode
+		void interpolation16x(bool enable);							// Register 34 : Enables or disables the 16x interpolation mode
 		void I2SConfig(uint8_t dataFormat, uint8_t wordLength);		// Register 40 : Configure I2S Data Format & Word Length
 		void selectDSPProgram(uint8_t program);						// Register 43 : DSP Program Selection
 
@@ -68,7 +69,7 @@ class PCM5142
 
 
 		// DSP
-		void setDSPUserProgram(reg_value program, reg_value miniDSP_D);		// Upload the user program into the RAM
+		void setDSPUserProgram(reg_value program[], uint16_t programSize, reg_value miniDSP_D[], uint16_t miniDSP_DSize);	// Upload the user program into the RAM
 
 		// I²C functions
 		uint8_t readRegister(uint8_t address);

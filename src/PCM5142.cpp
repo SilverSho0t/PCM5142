@@ -18,23 +18,24 @@
 
 #include "PCM5142.h"
 
-PCM5142::PCM5142(TwoWire& wire /* = Wire */, uint8_t slaveAddress /* = 0x4C */):
+PCM5142::PCM5142(uint8_t slaveAddress /* = 0x4C */, TwoWire& wire /* = Wire */):
 _wire(&wire),
-_slaveAddress(&slaveAddress)
+_slaveAddress(slaveAddress)
 {
 }
 
-void PCM5142::~PCM5142()
+PCM5142::~PCM5142()
 {
 }
 
 void PCM5142::begin(void)
 {
+	// Start I2C
+	_wire->begin();
+
 	// Synchronise page variable between the library and the component
 	_page = 1;
 	selectPage(0);
-
-	_wire->begin();
 }
 
 void PCM5142::selectPage(uint8_t page)
@@ -57,7 +58,7 @@ void PCM5142::reset(bool registers, bool modules /*= false*/)
 		setPowerMode(true);
 
 	selectPage(0);
-	writeRegister(1, modules << 4 + registers);
+	writeRegister(1, (modules << 4) + registers);
 
 	if (modules)
 		setPowerMode(false);
@@ -66,7 +67,7 @@ void PCM5142::reset(bool registers, bool modules /*= false*/)
 void PCM5142::setPowerMode(bool standby, bool powerdown /*= false*/)
 {
 	selectPage(0);
-	writeRegister(2, standby << 4 + powerdown);
+	writeRegister(2, (standby << 4) + powerdown);
 }
 
 uint8_t PCM5142::getPowerMode(void)
@@ -83,7 +84,7 @@ void PCM5142::mute(bool channels)
 void PCM5142::mute(bool left, bool right)
 {
 	selectPage(0);
-	writeRegister(3, left << 4 + right);
+	writeRegister(3, (left << 4) + right);
 }
 
 void PCM5142::PLL(void)
@@ -137,10 +138,10 @@ void PCM5142::SDOUTMode(bool mode)
  *	11: Octal speed (192 kHz < FS ≤ 384 kHz)
  */
 
-void PCM5142::interpolation(bool 16x)
+void PCM5142::interpolation16x(bool enable)
 {
 	selectPage(0);
-	writeRegister(34, 16x << 4);
+	writeRegister(34, enable << 4);
 }
 
 /*	Register 40 : I2S Data Format & Word Length
@@ -165,7 +166,7 @@ void PCM5142::interpolation(bool 16x)
 void PCM5142::I2SConfig(uint8_t dataFormat, uint8_t wordLength)
 {
 	selectPage(0);
-	writeRegister(40, dataFormat << 4 + wordLength);
+	writeRegister(40, (dataFormat << 4) + wordLength);
 }
 
 /*	Register 43 : DSP Program Selection
@@ -245,23 +246,19 @@ void PCM5142::setVolumeRight(uint8_t v)
 }
 
 // This function is useful only for PCM5141 & PCM5142 DACs
-void PCM5142::setDSPUserProgram(reg_value program, reg_value miniDSP_D)
+void PCM5142::setDSPUserProgram(reg_value program[], uint16_t programSize, reg_value miniDSP_D[], uint16_t miniDSP_DSize)
 {
-	uint16_t taille1 = sizeof(program) >> 1;
-
-	for (uint16_t i = 0; i < taille1; i++)
+	for (int i = 0; i < programSize; i++)
 	{
 		if (program[i].reg_off == 255)	// When reg_off = 255 we transmit miniDSP_D registers
 		{
-			uint16_t taille2 = sizeof(miniDSP_D) >> 1;
-
-			for (uint16_t j = 0; j < taille2; j++)
+			for (int j = 0; j < miniDSP_DSize; j++)
 			{
 				writeRegister(miniDSP_D[j].reg_off, miniDSP_D[j].reg_val);
 			}
 		}
 		else
-			writeRegister(program[i].reg_off, miniDSP_D[i].reg_val);
+			writeRegister(program[i].reg_off, program[i].reg_val);
 	}
 }
 
