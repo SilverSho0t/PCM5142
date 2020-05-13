@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
+# PCM512x / PCM514x documentation
 
-You can use the [editor on GitHub](https://github.com/SilverSho0t/PCM5142/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## Description
+This library is meant to ease the programming of PCM512x/PCM514x family devices.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The PCM512x/PCM514x devices are a family of monolithic CMOS-integrated circuits that include a stereo digital-to-analog converter and additional support circuitry in a small TSSOP package. The PCM512x/PCM514x uses the latest generation of TI’s advanced segment-DAC architecture to achieve excellent dynamic performance and improved tolerance to clock jitter.
 
-### Markdown
+Members of the PCM512x family integrate preset audio processing functions with programmable coefficients, allowing developers to change the characteristics of the interpolation filter, speaker EQ, dynamic range controls, and average volume control in their products.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Members of the PCM514x family integrate a fully programmable miniDSP core, allowing developers to integrate filters, dynamic range controls, custom interpolators, and other differentiating features to their products.
 
-```markdown
-Syntax highlighted code block
+The PCM512x/PCM514x provides 2.1-VRMS ground centered outputs, allowing designers to eliminate DC-blocking capacitors on the output, as well as external muting circuits traditionally associated with single-supply line drivers.
 
-# Header 1
-## Header 2
-### Header 3
+The integrated line driver surpasses all other charge pump-based line drivers by supporting loads down to 1 kΩ, allowing the PCM512x/PCM514x to drive up to 10 products in parallel, such as LCD TV, DVDR, and AV receivers.
 
-- Bulleted
-- List
+The integrated PLL on the device removes the requirement for a system clock (commonly known as master clock), allowing a 3-wire I
+2S connection and reducing system EMI.
 
-1. Numbered
-2. List
+## Compatibility
+| PART NUMBER  | PROCESSING | DYNAMIC RANGE | SNR | THD |
+| :---: | :---: | :---: | :---: | :---: |
+| [PCM5121](http://www.ti.com/lit/ds/symlink/pcm5121.pdf)  | Fixed-Function Processing (EQ, DRC) | 106 dB | 106 dB | –92 dB |
+| [PCM5122](http://www.ti.com/lit/ds/symlink/pcm5122.pdf)  | Fixed-Function Processing (EQ, DRC) | 112 dB | 112 dB | –93 dB |
+| [PCM5141](http://www.ti.com/lit/ds/symlink/pcm5141.pdf)  | Programmable miniDSP | 106 dB | 106 dB | –92 dB |
+| [PCM5142](http://www.ti.com/lit/ds/symlink/pcm5142.pdf)  | Programmable miniDSP | 112 dB | 112 dB | –93 dB |
 
-**Bold** and _Italic_ and `Code` text
+## Properties
+| Name  | Description |
+| --- | --- |
+| [&#95;wire](wire)  | Content Cell  |
+| [&#95;slaveAddress](slaveAddress.md)  | Content Cell  |
+| [&#95;page](url)  | Content Cell  |
+| [&#95;volControl](url)  | Content Cell  |
 
-[Link](url) and ![Image](src)
-```
+## Constructors
+| Name  | Description |
+| --- | --- |
+| [PCM5142](url)  | Content Cell |
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SilverSho0t/PCM5142/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Public Methods
+| Name  | Description |
+| --- | --- |
+| [Begin](url)  | Content Cell |
+| [End](url)  | Content Cell |
+| [SelectPage](url)  | Content Cell |
+| [Reset](url)  | Content Cell |
+| [PowerMode](url)  | Content Cell |
+| [Reset](url)  | Content Cell |
+| [Mute](url)  | Content Cell |
+| [DeEmphasisEnable](url)  | Content Cell |
+| [SDOUTMode](url)  | Content Cell |
+| [Interpolation16x](url)  | Content Cell |
+| [SDOUTMode](url)  | Content Cell |
+| [I2SConfig](url)  | Content Cell |
+| [SDOUTMode](url)  | Content Cell |
+| [SelectDSPProgram](url)  | Content Cell |
+| [SetVolumeControl](url)  | Content Cell |
+| [SetVolume](url)  | Content Cell |
+| [SetVolumeLeft](url)  | Content Cell |
+| [SetVolumeRight](url)  | Content Cell |
+| [DSPBootDoneFlag](url)  | Content Cell |
+| [PowerState](url)  | Content Cell |
+| [DACMode](url)  | Content Cell |
+| [SetDSPUserProgram](url)  | Content Cell |
+| [ReadRegister](url)  | Content Cell |
+| [ReadRegisters](url)  | Content Cell |
+| [WriteRegister](url)  | Content Cell |
