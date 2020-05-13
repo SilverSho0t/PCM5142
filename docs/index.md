@@ -17,6 +17,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 2S connection and reducing system EMI.
 
 ## Compatibility
+
 | PART NUMBER | PROCESSING | DYNAMIC RANGE | SNR | THD |
 |:---:|:---:|:---:|:---:|:---:|
 | [PCM5121](http://www.ti.com/lit/ds/symlink/pcm5121.pdf)  | Fixed-Function Processing (EQ, DRC) | 106 dB | 106 dB | –92 dB |
@@ -25,6 +26,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 | [PCM5142](http://www.ti.com/lit/ds/symlink/pcm5142.pdf)  | Programmable miniDSP | 112 dB | 112 dB | –93 dB |
 
 ## Properties
+
 | Name | Description |
 |:-------------|:------------------|
 | [&#95;wire](wire)  | Content Cell  |
@@ -33,11 +35,13 @@ The integrated PLL on the device removes the requirement for a system clock (com
 | [&#95;volControl](url)  | Content Cell  |
 
 ## Constructors
+
 | Name | Description |
 |:-------------|:------------------|
 | [PCM5142](url)  | Content Cell |
 
 ## Public Methods
+
 | Name | Description |
 |:-------------|:------------------|
 | [Begin](url)  | Content Cell |
