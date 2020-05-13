@@ -69,13 +69,28 @@ The integrated PLL on the device removes the requirement for a system clock (com
 
 | Name | Description |
 |:-------------|:------------------|
-| [ok](wire)   | good swedish fish |
-| out of stock | good and plenty   |
-| ok           | good `oreos`      |
-| [WriteRegister](url) | Content Cell |
-| [WriteRegister](url) | Content Cell |
-| [WriteRegister](url) | Content Cell |
-| [WriteRegister](url) | Content Cell |
-| [WriteRegister](url) | Content Cell |
-| [WriteRegister](url) | Content Cell |
-| [WriteRegister](url) | Content Cell |
+| [Begin](url)  | Content Cell |
+| [End](url)  | Content Cell |
+| [SelectPage](url)  | Content Cell |
+| [Reset](url)  | Content Cell |
+| [PowerMode](url)  | Content Cell |
+| [Reset](url)  | Content Cell |
+| [Mute](url)  | Content Cell |
+| [DeEmphasisEnable](url)  | Content Cell |
+| [SDOUTMode](url)  | Content Cell |
+| [Interpolation16x](url)  | Content Cell |
+| [SDOUTMode](url)  | Content Cell |
+| [I2SConfig](url)  | Content Cell |
+| [SDOUTMode](url)  | Content Cell |
+| [SelectDSPProgram](url)  | Content Cell |
+| [SetVolumeControl](url)  | Content Cell |
+| [SetVolume](url)  | Content Cell |
+| [SetVolumeLeft](url)  | Content Cell |
+| [SetVolumeRight](url)  | Content Cell |
+| [DSPBootDoneFlag](url)  | Content Cell |
+| [PowerState](url)  | Content Cell |
+| [DACMode](url)  | Content Cell |
+| [SetDSPUserProgram](url)  | Content Cell |
+| [ReadRegister](url)  | Content Cell |
+| [ReadRegisters](url)  | Content Cell |
+| [WriteRegister](url)  | Content Cell |
