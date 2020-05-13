@@ -17,7 +17,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 2S connection and reducing system EMI.
 
 ## Compatibility
-| PART NUMBER  | PROCESSING | DYNAMIC RANGE | SNR | THD |
+| PART NUMBER | PROCESSING | DYNAMIC RANGE | SNR | THD |
 |:---:|:---:|:---:|:---:|:---:|
 | [PCM5121](http://www.ti.com/lit/ds/symlink/pcm5121.pdf)  | Fixed-Function Processing (EQ, DRC) | 106 dB | 106 dB | –92 dB |
 | [PCM5122](http://www.ti.com/lit/ds/symlink/pcm5122.pdf)  | Fixed-Function Processing (EQ, DRC) | 112 dB | 112 dB | –93 dB |
@@ -25,48 +25,19 @@ The integrated PLL on the device removes the requirement for a system clock (com
 | [PCM5142](http://www.ti.com/lit/ds/symlink/pcm5142.pdf)  | Programmable miniDSP | 112 dB | 112 dB | –93 dB |
 
 ## Properties
-| Name  | Description |
-|:-------------|:-------------|
+| Name | Description |
+|:-------------|:------------------|
 | [&#95;wire](wire)  | Content Cell  |
 | [&#95;slaveAddress](slaveAddress.md)  | Content Cell  |
 | [&#95;page](url)  | Content Cell  |
 | [&#95;volControl](url)  | Content Cell  |
 
 ## Constructors
-| Name  | Description |
-|:-------------|:-------------|
+| Name | Description |
+|:-------------|:------------------|
 | [PCM5142](url)  | Content Cell |
 
 ## Public Methods
-| Name  | Description |
-|:-------------|:-------------|
-| [Begin](url)  | Content Cell |
-| [End](url)  | Content Cell |
-| [SelectPage](url)  | Content Cell |
-| [Reset](url)  | Content Cell |
-| [PowerMode](url)  | Content Cell |
-| [Reset](url)  | Content Cell |
-| [Mute](url)  | Content Cell |
-| [DeEmphasisEnable](url)  | Content Cell |
-| [SDOUTMode](url)  | Content Cell |
-| [Interpolation16x](url)  | Content Cell |
-| [SDOUTMode](url)  | Content Cell |
-| [I2SConfig](url)  | Content Cell |
-| [SDOUTMode](url)  | Content Cell |
-| [SelectDSPProgram](url)  | Content Cell |
-| [SetVolumeControl](url)  | Content Cell |
-| [SetVolume](url)  | Content Cell |
-| [SetVolumeLeft](url)  | Content Cell |
-| [SetVolumeRight](url)  | Content Cell |
-| [DSPBootDoneFlag](url)  | Content Cell |
-| [PowerState](url)  | Content Cell |
-| [DACMode](url)  | Content Cell |
-| [SetDSPUserProgram](url)  | Content Cell |
-| [ReadRegister](url)  | Content Cell |
-| [ReadRegisters](url)  | Content Cell |
-| [WriteRegister](url)  | Content Cell |
-
-
 | Name | Description |
 |:-------------|:------------------|
 | [Begin](url)  | Content Cell |
