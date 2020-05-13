@@ -67,9 +67,15 @@ The integrated PLL on the device removes the requirement for a system clock (com
 | [WriteRegister](url)  | Content Cell |
 
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| [ok](wire)   | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+| Name | Description |
+|:-------------|:------------------|
+| [ok](wire)   | good swedish fish |
+| out of stock | good and plenty   |
+| ok           | good `oreos`      |
+| [WriteRegister](url) | Content Cell |
+| [WriteRegister](url) | Content Cell |
+| [WriteRegister](url) | Content Cell |
+| [WriteRegister](url) | Content Cell |
+| [WriteRegister](url) | Content Cell |
+| [WriteRegister](url) | Content Cell |
+| [WriteRegister](url) | Content Cell |
