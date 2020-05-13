@@ -18,7 +18,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 
 ## Compatibility
 | PART NUMBER  | PROCESSING | DYNAMIC RANGE | SNR | THD |
-| :---: | :---: | :---: | :---: | :---: |
+|:---:|:---:|:---:|:---:|:---:|
 | [PCM5121](http://www.ti.com/lit/ds/symlink/pcm5121.pdf)  | Fixed-Function Processing (EQ, DRC) | 106 dB | 106 dB | –92 dB |
 | [PCM5122](http://www.ti.com/lit/ds/symlink/pcm5122.pdf)  | Fixed-Function Processing (EQ, DRC) | 112 dB | 112 dB | –93 dB |
 | [PCM5141](http://www.ti.com/lit/ds/symlink/pcm5141.pdf)  | Programmable miniDSP | 106 dB | 106 dB | –92 dB |
@@ -26,7 +26,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 
 ## Properties
 | Name  | Description |
-| --- | --- |
+|:-------------|:-------------|
 | [&#95;wire](wire)  | Content Cell  |
 | [&#95;slaveAddress](slaveAddress.md)  | Content Cell  |
 | [&#95;page](url)  | Content Cell  |
@@ -34,12 +34,12 @@ The integrated PLL on the device removes the requirement for a system clock (com
 
 ## Constructors
 | Name  | Description |
-| --- | --- |
+|:-------------|:-------------|
 | [PCM5142](url)  | Content Cell |
 
 ## Public Methods
 | Name  | Description |
-| --- | --- |
+|:-------------|:-------------|
 | [Begin](url)  | Content Cell |
 | [End](url)  | Content Cell |
 | [SelectPage](url)  | Content Cell |
@@ -69,7 +69,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 
 | head1        | head two          | three |
 |:-------------|:------------------|:------|
-| [ok](wire)           | good swedish fish | nice  |
+| [ok](wire)   | good swedish fish | nice  |
 | out of stock | good and plenty   | nice  |
 | ok           | good `oreos`      | hmm   |
 | ok           | good `zoute` drop | yumm  |
