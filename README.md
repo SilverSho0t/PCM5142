@@ -27,40 +27,39 @@ The integrated PLL on the device removes the requirement for a system clock (com
 ## Properties
 | Name  | Description |
 | --- | --- |
-| [&#95;wire](properties/wire)  | TwoWire from Wire.h library (Wire, Wire1...). |
-| [&#95;slaveAddress](properties/slaveAddress)  | The I²C address of the device. |
-| [&#95;page](properties/page)  | The selected page. |
-| [&#95;volControl](properties/volControl)  | The behavior of the digital volume. |
+| [&#95;wire](https://silversho0t.github.io/PCM5142/properties/wire)  | TwoWire from Wire.h library (Wire, Wire1...). |
+| [&#95;slaveAddress](https://silversho0t.github.io/PCM5142/properties/slaveAddress)  | The I²C address of the device. |
+| [&#95;page](https://silversho0t.github.io/PCM5142/properties/page)  | The selected page. |
+| [&#95;volControl](https://silversho0t.github.io/PCM5142/properties/volControl)  | The behavior of the digital volume. |
 
 ## Constructors
 | Name  | Description |
 | --- | --- |
-| [PCM5142](constructors/PCM5142)  | Creates a new PCM5142. |
+| [PCM5142](https://silversho0t.github.io/PCM5142/constructors/PCM5142)  | Creates a new PCM5142. |
 
 ## Public Methods
 | Name  | Description |
 | --- | --- |
-| [Begin](methods/Begin)  | Initialises the library with the device. Return the device status. |
-| [End](methods/End)  | Closes the communication between the library and the device. |
-| [SelectPage](methods/SelectPage)  | Selects the page to which you will modify registers. |
-| [Reset](methods/Reset)  | Resets modules or/and registers. |
-| [PowerMode](methods/PowerMode)  | Sets a power mode, request standby or powerdown. |
-| [Mute](methods/Mute)  | Enables or disables the mute mode. |
-| [DeEmphasisEnable](methods/DeEmphasisEnable)  | Enables or disables the de-emphasis filter. |
-| [SDOUTMode](methods/SDOUTMode)  | Selects what is being output as SDOUT via GPIO pins. |
-| [Interpolation16x](methods/Interpolation16x)  | Enables or disables the 16x interpolation mode. |
-| [I2SConfig](methods/Interpolation16x)  | Set input and output audio interface formats and sample word lengths. |
-| [SelectDSPProgram](methods/SelectDSPProgram)  | Selects the DSP program to use for audio processing. |
-| [SetVolumeControl](methods/SetVolumeControl)  | Sets the behavior of the digital volume. |
-| [SetVolume](methods/SetVolume)  | Sets the digital volume depending of the behavior selected. |
-| [SetVolumeLeft](methods/SetVolumeLeft)  | Sets the left channel digital volume. |
-| [SetVolumeRight](methods/SetVolumeRight)  | Sets the right channel digital volume. |
-| [FSSpeedMode](methods/FSSpeedMode) | Returns the actual FS operation mode being used. |
-| [DSPBootDone](methods/DSPBootDone)  | Returns whether the DSP boot is completed. |
-| [PowerState](methods/PowerState)  | Returns the current power state of the DAC. |
-| [DACMode](methods/DACMode)  | Sets the DAC architecture to vary the DAC auditory signature. |
-| [SetDSPUserProgram](methods/SetDSPUserProgram)  | Set the miniDSP program (only PCM514x family). |
-| [ReadRegister](methods/ReadRegister)  | Returns the value of a specific register. |
-| [ReadRegisters](methods/ReadRegisters)  | Returns the value of multiples registers. |
-| [WriteRegister](methods/WriteRegister)  | Sets the value of a specific register. |
-
+| [Begin](https://silversho0t.github.io/PCM5142/methods/Begin)  | Initialises the library with the device. Return the device status. |
+| [End](https://silversho0t.github.io/PCM5142/methods/End)  | Closes the communication between the library and the device. |
+| [SelectPage](https://silversho0t.github.io/PCM5142/methods/SelectPage)  | Selects the page to which you will modify registers. |
+| [Reset](https://silversho0t.github.io/PCM5142/methods/Reset)  | Resets modules or/and registers. |
+| [PowerMode](https://silversho0t.github.io/PCM5142/methods/PowerMode)  | Sets a power mode, request standby or powerdown. |
+| [Mute](https://silversho0t.github.io/PCM5142/methods/Mute)  | Enables or disables the mute mode. |
+| [DeEmphasisEnable](https://silversho0t.github.io/PCM5142/methods/DeEmphasisEnable)  | Enables or disables the de-emphasis filter. |
+| [SDOUTMode](https://silversho0t.github.io/PCM5142/methods/SDOUTMode)  | Selects what is being output as SDOUT via GPIO pins. |
+| [Interpolation16x](https://silversho0t.github.io/PCM5142/methods/Interpolation16x)  | Enables or disables the 16x interpolation mode. |
+| [I2SConfig](https://silversho0t.github.io/PCM5142/methods/Interpolation16x)  | Sets input and output audio interface formats and sample word lengths. |
+| [SelectDSPProgram](https://silversho0t.github.io/PCM5142/methods/SelectDSPProgram)  | Selects the DSP program to use for audio processing. |
+| [SetVolumeControl](https://silversho0t.github.io/PCM5142/methods/SetVolumeControl)  | Sets the behavior of the digital volume. |
+| [SetVolume](https://silversho0t.github.io/PCM5142/methods/SetVolume)  | Sets the digital volume depending of the behavior selected. |
+| [SetVolumeLeft](https://silversho0t.github.io/PCM5142/methods/SetVolumeLeft)  | Sets the left channel digital volume. |
+| [SetVolumeRight](https://silversho0t.github.io/PCM5142/methods/SetVolumeRight)  | Sets the right channel digital volume. |
+| [FSSpeedMode](https://silversho0t.github.io/PCM5142/methods/FSSpeedMode) | Returns the actual FS operation mode being used. |
+| [DSPBootDone](https://silversho0t.github.io/PCM5142/methods/DSPBootDone)  | Returns whether the DSP boot is completed. |
+| [PowerState](https://silversho0t.github.io/PCM5142/methods/PowerState)  | Returns the current power state of the DAC. |
+| [DACMode](https://silversho0t.github.io/PCM5142/methods/DACMode)  | Sets the DAC architecture to vary the DAC auditory signature. |
+| [SetDSPUserProgram](https://silversho0t.github.io/PCM5142/methods/SetDSPUserProgram)  | Sets the miniDSP program (only PCM514x family). |
+| [ReadRegister](https://silversho0t.github.io/PCM5142/methods/ReadRegister)  | Returns the value of a specific register. |
+| [ReadRegisters](https://silversho0t.github.io/PCM5142/methods/ReadRegisters)  | Returns the value of multiples registers. |
+| [WriteRegister](https://silversho0t.github.io/PCM5142/methods/WriteRegister)  | Sets the value of a specific register. |

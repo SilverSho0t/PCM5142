@@ -20,8 +20,8 @@ The integrated PLL on the device removes the requirement for a system clock (com
 
 | PART<br>NUMBER | PROCESSING | DYNAMIC<br>RANGE | SNR | THD |
 |:---:|:---:|:---:|:---:|:---:|
-| [PCM5121](http://www.ti.com/lit/ds/symlink/pcm5121.pdf)  | Fixed-Function Processing<br>(EQ, DRC) | 106 dB | 106 dB | –92 dB |
-| [PCM5122](http://www.ti.com/lit/ds/symlink/pcm5122.pdf)  | Fixed-Function Processing<br>(EQ, DRC) | 112 dB | 112 dB | –93 dB |
+| [PCM5121](http://www.ti.com/lit/ds/symlink/pcm5121.pdf)  | Fixed-Function Processing (EQ, DRC) | 106 dB | 106 dB | –92 dB |
+| [PCM5122](http://www.ti.com/lit/ds/symlink/pcm5122.pdf)  | Fixed-Function Processing (EQ, DRC) | 112 dB | 112 dB | –93 dB |
 | [PCM5141](http://www.ti.com/lit/ds/symlink/pcm5141.pdf)  | Programmable miniDSP | 106 dB | 106 dB | –92 dB |
 | [PCM5142](http://www.ti.com/lit/ds/symlink/pcm5142.pdf)  | Programmable miniDSP | 112 dB | 112 dB | –93 dB |
 
@@ -53,7 +53,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 | [DeEmphasisEnable](methods/DeEmphasisEnable)  | Enables or disables the de-emphasis filter. |
 | [SDOUTMode](methods/SDOUTMode)  | Selects what is being output as SDOUT via GPIO pins. |
 | [Interpolation16x](methods/Interpolation16x)  | Enables or disables the 16x interpolation mode. |
-| [I2SConfig](methods/Interpolation16x)  | Set input and output audio interface formats and sample word lengths. |
+| [I2SConfig](methods/Interpolation16x)  | Sets input and output audio interface formats and sample word lengths. |
 | [SelectDSPProgram](methods/SelectDSPProgram)  | Selects the DSP program to use for audio processing. |
 | [SetVolumeControl](methods/SetVolumeControl)  | Sets the behavior of the digital volume. |
 | [SetVolume](methods/SetVolume)  | Sets the digital volume depending of the behavior selected. |
@@ -63,7 +63,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 | [DSPBootDone](methods/DSPBootDone)  | Returns whether the DSP boot is completed. |
 | [PowerState](methods/PowerState)  | Returns the current power state of the DAC. |
 | [DACMode](methods/DACMode)  | Sets the DAC architecture to vary the DAC auditory signature. |
-| [SetDSPUserProgram](methods/SetDSPUserProgram)  | Set the miniDSP program (only PCM514x family). |
+| [SetDSPUserProgram](methods/SetDSPUserProgram)  | Sets the miniDSP program (only PCM514x family). |
 | [ReadRegister](methods/ReadRegister)  | Returns the value of a specific register. |
 | [ReadRegisters](methods/ReadRegisters)  | Returns the value of multiples registers. |
 | [WriteRegister](methods/WriteRegister)  | Sets the value of a specific register. |
