@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 **Desktop (please complete the following information):**
  - OS: [e.g. Windows]
  - Browser [e.g. chrome, safari]
- - Arduino Version [e.g. 22]
+ - Arduino Version [e.g. 1.8.5]
 
 **Additional context**
 Add any other context about the problem here.
