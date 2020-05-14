@@ -31,7 +31,8 @@ SetVolume	KEYWORD2
 SetVolumeLeft	KEYWORD2
 SetVolumeRight	KEYWORD2
 
-DSPBootDoneFlag	KEYWORD2
+FSSpeedMode	KEYWORD2
+DSPBootDone	KEYWORD2
 PowerState	KEYWORD2
 DACMode	KEYWORD2
 

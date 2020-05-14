@@ -39,6 +39,7 @@ class PCM5142
 		~PCM5142();
 
 		void Begin(void);
+		void End(void);
 
 		// Any page
 		void SelectPage(uint8_t page);							// Register 0 : Page Select
@@ -64,10 +65,11 @@ class PCM5142
 		void SetVolumeLeft(uint8_t v);						// Register 61 : Left Digital Volume
 		void SetVolumeRight(uint8_t v);						// Register 62 : Right Digital Volume
 
-		bool DSPBootDoneFlag(void);							// Register 118 : DSP Boot Done Flag (Read Only)
-		uint8_t PowerState(void);							// Register 118 : Power State (Read Only)
+		uint8_t FSSpeedMode(void);		// Register 115 : FS Speed Mode Monitor (Read Only)
+		bool DSPBootDone(void);			// Register 118 : DSP Boot Done Flag (Read Only)
+		uint8_t PowerState(void);		// Register 118 : Power State (Read Only)
 
-		void DACMode(bool mode);							// Register 121 : DAC Mode
+		void DACMode(bool mode);		// Register 121 : DAC Mode
 
 		// Page 1
 

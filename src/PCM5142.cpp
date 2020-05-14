@@ -36,12 +36,13 @@ void PCM5142::Begin(void)
 	// Synchronise page variable between the library and the component
 	_page = 1;
 	SelectPage(0);
+	SetVolumeControl(0);
 }
 
 void PCM5142::SelectPage(uint8_t page)
 {
-	if (page == _page)	// Check if the page is already selected
-		return;
+	if (page == _page)	// Check if the page is already selected,
+		return;			// if already selected stop here.
 
 	WriteRegister(0, page);
 	_page = page;
@@ -241,6 +242,21 @@ void PCM5142::SetVolumeRight(uint8_t v)
 	WriteRegister(62, v);
 }
 
+/*	Register 115 : FS Speed Mode Monitor (Read Only)
+ *	These bits indicate the actual FS operation mode being used. The actual value is the auto set one when clock
+ *	auto set is active and register set one when clock auto set is disabled.
+ *	00: Single speed (FS ≤ 48 kHz)
+ *	01: Double speed (48 kHz < FS ≤ 96 kHz)
+ *	10: Quad speed (96 kHz < FS ≤ 192 kHz)
+ *	11: Octal speed (192 kHz < FS ≤ 384 kHz)
+ */
+
+uint8_t PCM5142::FSSpeedMode(void)
+{
+	SelectPage(0);
+	return ReadRegister(115) & 0x03;
+}
+
 /*	Register 118 : DSP Boot Done Flag & Power State (Read Only)
  *
  *	DSP Boot Done Flag (Read Only)
@@ -261,7 +277,7 @@ void PCM5142::SetVolumeRight(uint8_t v)
  *	1000: Standby
  */
 
-bool PCM5142::DSPBootDoneFlag(void)
+bool PCM5142::DSPBootDone(void)
 {
 	SelectPage(0);
 	return ReadRegister(118) >> 7;

@@ -19,49 +19,48 @@ The integrated PLL on the device removes the requirement for a system clock (com
 ## Compatibility
 | PART NUMBER  | PROCESSING | DYNAMIC RANGE | SNR | THD |
 | :---: | :---: | :---: | :---: | :---: |
-| PCM5121  | Fixed-Function Processing (EQ, DRC) | 106 dB | 106 dB | –92 dB |
-| PCM5122  | Fixed-Function Processing (EQ, DRC) | 112 dB | 112 dB | –93 dB |
-| PCM5141  | Programmable miniDSP | 106 dB | 106 dB | –92 dB |
-| PCM5142  | Programmable miniDSP | 112 dB | 112 dB | –93 dB |
+| [PCM5121](http://www.ti.com/lit/ds/symlink/pcm5121.pdf)  | Fixed-Function Processing (EQ, DRC) | 106 dB | 106 dB | –92 dB |
+| [PCM5122](http://www.ti.com/lit/ds/symlink/pcm5122.pdf)  | Fixed-Function Processing (EQ, DRC) | 112 dB | 112 dB | –93 dB |
+| [PCM5141](http://www.ti.com/lit/ds/symlink/pcm5141.pdf)  | Programmable miniDSP | 106 dB | 106 dB | –92 dB |
+| [PCM5142](http://www.ti.com/lit/ds/symlink/pcm5142.pdf)  | Programmable miniDSP | 112 dB | 112 dB | –93 dB |
 
 ## Properties
 | Name  | Description |
 | --- | --- |
-| &#95;wire  | Content Cell  |
-| &#95;slaveAddress  | Content Cell  |
-| &#95;page  | Content Cell  |
-| &#95;volControl  | Content Cell  |
+| [&#95;wire](properties/wire)  | TwoWire from Wire.h library (Wire, Wire1...). |
+| [&#95;slaveAddress](properties/slaveAddress)  | The I²C address of the device. |
+| [&#95;page](properties/page)  | The selected page. |
+| [&#95;volControl](properties/volControl)  | The behavior of the digital volume. |
 
 ## Constructors
 | Name  | Description |
 | --- | --- |
-| PCM5142  | Content Cell |
+| [PCM5142](constructors/PCM5142)  | Creates a new PCM5142. |
 
 ## Public Methods
 | Name  | Description |
 | --- | --- |
-| Begin  | Content Cell |
-| End  | Content Cell |
-| SelectPage  | Content Cell |
-| Reset  | Content Cell |
-| PowerMode  | Content Cell |
-| Reset  | Content Cell |
-| Mute  | Content Cell |
-| DeEmphasisEnable  | Content Cell |
-| SDOUTMode  | Content Cell |
-| Interpolation16x  | Content Cell |
-| SDOUTMode  | Content Cell |
-| I2SConfig  | Content Cell |
-| SDOUTMode  | Content Cell |
-| SelectDSPProgram  | Content Cell |
-| SetVolumeControl  | Content Cell |
-| SetVolume  | Content Cell |
-| SetVolumeLeft  | Content Cell |
-| SetVolumeRight  | Content Cell |
-| DSPBootDoneFlag  | Content Cell |
-| PowerState  | Content Cell |
-| DACMode  | Content Cell |
-| SetDSPUserProgram  | Content Cell |
-| ReadRegister  | Content Cell |
-| ReadRegisters  | Content Cell |
-| WriteRegister  | Content Cell |
+| [Begin](methods/Begin)  | Initialises the library with the device. Return the device status. |
+| [End](methods/End)  | Closes the communication between the library and the device. |
+| [SelectPage](methods/SelectPage)  | Selects the page to which you will modify registers. |
+| [Reset](methods/Reset)  | Resets modules or/and registers. |
+| [PowerMode](methods/PowerMode)  | Sets a power mode, request standby or powerdown. |
+| [Mute](methods/Mute)  | Enables or disables the mute mode. |
+| [DeEmphasisEnable](methods/DeEmphasisEnable)  | Enables or disables the de-emphasis filter. |
+| [SDOUTMode](methods/SDOUTMode)  | Selects what is being output as SDOUT via GPIO pins. |
+| [Interpolation16x](methods/Interpolation16x)  | Enables or disables the 16x interpolation mode. |
+| [I2SConfig](methods/Interpolation16x)  | Set input and output audio interface formats and sample word lengths. |
+| [SelectDSPProgram](methods/SelectDSPProgram)  | Selects the DSP program to use for audio processing. |
+| [SetVolumeControl](methods/SetVolumeControl)  | Sets the behavior of the digital volume. |
+| [SetVolume](methods/SetVolume)  | Sets the digital volume depending of the behavior selected. |
+| [SetVolumeLeft](methods/SetVolumeLeft)  | Sets the left channel digital volume. |
+| [SetVolumeRight](methods/SetVolumeRight)  | Sets the right channel digital volume. |
+| [FSSpeedMode](methods/FSSpeedMode) | Returns the actual FS operation mode being used. |
+| [DSPBootDone](methods/DSPBootDone)  | Returns whether the DSP boot is completed. |
+| [PowerState](methods/PowerState)  | Returns the current power state of the DAC. |
+| [DACMode](methods/DACMode)  | Sets the DAC architecture to vary the DAC auditory signature. |
+| [SetDSPUserProgram](methods/SetDSPUserProgram)  | Set the miniDSP program (only PCM514x family). |
+| [ReadRegister](methods/ReadRegister)  | Returns the value of a specific register. |
+| [ReadRegisters](methods/ReadRegisters)  | Returns the value of multiples registers. |
+| [WriteRegister](methods/WriteRegister)  | Sets the value of a specific register. |
+
