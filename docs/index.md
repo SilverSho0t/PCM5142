@@ -1,4 +1,4 @@
-# PCM512x / PCM514x documentation
+# PCM5142 documentation
 
 ## Description
 This library is meant to ease the programming of PCM512x/PCM514x family devices.
@@ -40,11 +40,11 @@ The integrated PLL on the device removes the requirement for a system clock (com
 |:-------------|:------------------|
 | [PCM5142](constructors/PCM5142)  | Creates a new PCM5142. |
 
-## Public Methods/
+## Public Methods
 
 | Name | Description |
 |:-------------|:------------------|
-| [Begin](methods/Begin)  | Initialises the library with the device. Return the device status. |
+| [Begin](methods/Begin)  | Initialises the library with the device. |
 | [End](methods/End)  | Closes the communication between the library and the device. |
 | [SelectPage](methods/SelectPage)  | Selects the page to which you will modify registers. |
 | [Reset](methods/Reset)  | Resets modules or/and registers. |

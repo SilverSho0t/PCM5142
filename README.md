@@ -40,7 +40,7 @@ The integrated PLL on the device removes the requirement for a system clock (com
 ## Public Methods
 | Name  | Description |
 | --- | --- |
-| [Begin](https://silversho0t.github.io/PCM5142/methods/Begin)  | Initialises the library with the device. Return the device status. |
+| [Begin](https://silversho0t.github.io/PCM5142/methods/Begin)  | Initialises the library with the device. |
 | [End](https://silversho0t.github.io/PCM5142/methods/End)  | Closes the communication between the library and the device. |
 | [SelectPage](https://silversho0t.github.io/PCM5142/methods/SelectPage)  | Selects the page to which you will modify registers. |
 | [Reset](https://silversho0t.github.io/PCM5142/methods/Reset)  | Resets modules or/and registers. |

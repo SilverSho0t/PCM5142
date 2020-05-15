@@ -39,6 +39,11 @@ void PCM5142::Begin(void)
 	SetVolumeControl(0);
 }
 
+void PCM5142::End(void)
+{
+	_wire->end();
+}
+
 void PCM5142::SelectPage(uint8_t page)
 {
 	if (page == _page)	// Check if the page is already selected,
