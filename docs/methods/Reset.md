@@ -10,14 +10,14 @@ Resets modules or/and registers.
 #### Reset Registers
 This bit resets the mode registers back to their initial values. The RAM content is not cleared, but the execution source will be back to ROM. This bit is auto cleared and must be set only when the DAC is in standby mode (resetting registers when the DAC is running is prohibited and not supported).
 
-Default register value: 0<br>
+Default register value: 0 (false)<br>
 false: Normal<br>
 true:  Reset registers
 
 #### Reset Modules
 This bit resets the interpolation filter and the DAC modules. Since the DSP is also reset, the coeffient RAM content will also be cleared by the DSP. This bit is auto cleared and can be set only in standby mode.
 
-Default register value: 0<br>
+Default register value: 0 (false)<br>
 false: Normal<br>
 true: Reset modules
 
