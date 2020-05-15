@@ -69,7 +69,7 @@ class PCM5142
 		bool DSPBootDone(void);			// Register 118 : DSP Boot Done Flag (Read Only)
 		uint8_t PowerState(void);		// Register 118 : Power State (Read Only)
 
-		void DACMode(bool mode);		// Register 121 : DAC Mode
+		void DACMode(uint8_t mode);		// Register 121 : DAC Mode
 
 		// Page 1
 

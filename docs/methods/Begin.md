@@ -1,12 +1,10 @@
-# PCM5142 documentation
-
-## PCM5142.Begin
+# PCM5142.Begin
 
 public void **Begin**(void);
 
-### Description
+## Description
 
-Initialises the library with the device by a Wire.begin(), selecting page 0 and selecting the volume behaviour to 0 (see [SetVolumeControl()](SetVolumeControl)).
+Initialises the library with the device with a Wire.begin(), selects page 0 and selects the volume behaviour to 0 (see [SetVolumeControl()](SetVolumeControl)).
 
 ```c++
 #include <PCM5142.h>

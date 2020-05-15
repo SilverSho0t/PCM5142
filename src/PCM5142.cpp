@@ -303,7 +303,7 @@ uint8_t PCM5142::PowerState(void)
  *	1: Mode2 - Classic PCM1792 advanced current-segment architecture
  */
 
-void PCM5142::DACMode(bool mode)
+void PCM5142::DACMode(uint8_t mode)
 {
 	SelectPage(0);
 	WriteRegister(121, mode);
