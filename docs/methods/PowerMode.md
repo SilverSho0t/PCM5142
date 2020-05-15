@@ -13,7 +13,7 @@ Default register value: 0 (false)<br>
 false: Normal operation<br>
 true: Standby mode
 
-Powerdown Request
+#### Powerdown Request
 When this bit is set, the DAC will be forced into powerdown mode, in which the power consumption would be minimum as the charge pump is also powered down. However, it will take longer to restart from this mode. This mode has higher precedence than the standby mode, that is, setting this bit along with bit 4 for standby mode will result in the DAC going into powerdown mode.
 
 Default register value: 0 (false)<br>
